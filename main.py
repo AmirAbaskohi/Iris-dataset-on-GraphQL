@@ -1,6 +1,7 @@
 from graphene import ObjectType, String, Schema, Int
-from flask import Flask
+from flask import Flask, request
 import os
+import json
 
 class Query(ObjectType):
     hello = String(name=String(default_value="stranger"),
@@ -13,10 +14,17 @@ class Query(ObjectType):
 app = Flask(__name__)
 schema = Schema(query=Query)
 
-@app.route("/", methods=["GET"])
+@app.route("/", methods=["POST"])
 def hello():
-    result = schema.execute('{ hello(name: "amirhossein", age: 21) }')
-    return '{"result": "' + result.data['hello'] + '"}'
+    print("**********************")
+    print(request.data)
+    print("**********************")
+    data = json.loads(request.data)
+    print("**********************")
+    print(data)
+    print("**********************")
+    result = schema.execute(data['query'])
+    return json.dumps(result.data)
 
 
 if __name__ == '__main__':
