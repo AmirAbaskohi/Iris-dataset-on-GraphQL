@@ -18,3 +18,11 @@ A GraphQL schema is made up of object types, which define which kind of object y
 As queries come in, GraphQL validates the queries against the schema. GraphQL then executes the validated queries.
 
 The API developer attaches each field in a schema to a function called a resolver. During execution, the resolver is called to produce the value.
+
+## Why graphql over REST?
+* Standard: No fightinh over what is the right way to do REST. The spec is defined.
+* Development environment
+* Get exactly what you want
+* Types
+* Lower Network Overhead
+* No Versioning: It is append only, you don't have to painful versions
