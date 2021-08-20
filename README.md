@@ -1,4 +1,4 @@
-# GraphQL
+# Iris dataset on GraphQL
 This is an implementation of graphql in python.
 
 ## Intro
@@ -53,5 +53,30 @@ We have `GRAPHENE` for that.
 
 ## Requirements
 * flask
-* flask_graphql
+* graphene
 * docker
+* numpy
+* pandas
+* tensorflow
+* pickle
+* gunicorn
+
+## How to run?
+First you can train your model. This can be done by running below command in `model` directory:
+```
+python main.py
+```
+
+Then run the flask server by running below command in `api` directory:
+```
+python server.py
+```
+
+Now server is accessible in `0.0.0.0:8080` port.
+
+You can run the apis using postman. Here is an example:
+![Untitled](https://user-images.githubusercontent.com/50926437/130287728-50e752c4-85c8-4748-aac4-34645dd2692a.png)
+
+
+
+*Amirhossein Abaskohi*
