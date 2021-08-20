@@ -1,0 +1,9 @@
+flask
+graphene
+gunicorn
+tensorflow
+numpy
+pandas
+sklearn
+json
+pickle
