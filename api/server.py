@@ -26,8 +26,11 @@ class Query(ObjectType):
 
     # Iris classifier resolver
     def resolve_iris_class(root, info, sepal_length, sepal_width, petal_length, petal_width):
+        # Making a list of parameters in a form which is acceptable by normalizer
         values = [[sepal_length, sepal_width, petal_length, petal_width]]
+        # Normalizing the data
         values = normalizer.transform(values)
+        # Classfing and returning the result
         return classes[np.argmax(model.predict(np.array(values)), axis=1)[0]]
 
 # Creating flas application and making an instance of our Query schema
