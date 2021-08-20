@@ -13,7 +13,7 @@ class Query(ObjectType):
 
 def main():
     schema = Schema(query=Query)
-    result = schema.execute('{ hello }')
+    result = schema.execute('{ hello(name: "amirhossein", age: 21) }')
     print(result.data['hello'])
 
 
