@@ -1,4 +1,6 @@
 from graphene import ObjectType, String, Schema, Int
+from flask import Flask
+import os
 
 class Query(ObjectType):
     hello = String(name=String(default_value="stranger"),
@@ -8,14 +10,14 @@ class Query(ObjectType):
     def resolve_hello(root, info, name, age):
         return f'Hello {name} with age {age}!'
 
-    def resolve_goodbye(root, info):
-        return 'See ya!'
+app = Flask(__name__)
+schema = Schema(query=Query)
 
-def main():
-    schema = Schema(query=Query)
+@app.route("/", methods=["GET"])
+def hello():
     result = schema.execute('{ hello(name: "amirhossein", age: 21) }')
-    print(result.data['hello'])
+    return '{"result": "' + result.data['hello'] + '"}'
 
 
 if __name__ == '__main__':
-    main()
+    app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
