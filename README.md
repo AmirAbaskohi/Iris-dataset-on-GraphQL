@@ -26,3 +26,32 @@ The API developer attaches each field in a schema to a function called a resolve
 * Types
 * Lower Network Overhead
 * No Versioning: It is append only, you don't have to painful versions
+
+## What does python have to offer for GraphQL?
+
+![image](https://user-images.githubusercontent.com/50926437/130273461-a90001a1-d28f-46e7-be0d-d6523a0d6f81.png)
+
+We have `GRAPHENE` for that.
+
+### What is GRAPHINE?
+* Graphql implementation for Python
+* Is very popular
+  * 2nd only to FB implementation
+* Has many production users
+  * Yelp, mozilla
+* Integrations with popular frameworks
+  * Django, Flask, Pyramid
+* Integrations with popular ORMs
+  * Django, SQLAlchemy, Peewee, GAE
+
+### Terminology
+* Type/Objects: Sort of like seralizers for graphql
+* Schema: The container of all the graphql types at your disposal
+* Resolver: The function that is executed to give back the data for a single attribute of a type/object
+* Query: What you use to get or set data using graphql
+* Mutations: Subset of queries that is used to change/modify data
+
+## Requirements
+* flask
+* flask_graphql
+* docker
